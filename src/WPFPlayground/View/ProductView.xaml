@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="WPFPlayground.View.ProductView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:designer="clr-namespace:WPFPlayground.ViewModel.Designer"
+             xmlns:valueConverters="clr-namespace:WPFPlayground.View.ValueConverters"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance designer:DesignProductViewModel, IsDesignTimeCreatable=True}">
+    <UserControl.Resources>
+        <valueConverters:DefectiveToBackgroundColorConverter x:Key="DefectiveToBackgroundColorConverter" />
+    </UserControl.Resources>
+    <Viewbox>
+        <Border Width="500" Background="{Binding IsDefective, Converter={StaticResource DefectiveToBackgroundColorConverter}}">
+            <TextBlock Text="{Binding Name}" FontSize="40" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </Border>
+    </Viewbox>
+</UserControl>

@@ -1,0 +1,22 @@
+﻿<Window x:Class="WPFPlayground.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:WPFPlayground.ViewModel"
+        xmlns:view="clr-namespace:WPFPlayground.View"
+        xmlns:designer="clr-namespace:WPFPlayground.ViewModel.Designer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" d:DataContext="{d:DesignInstance designer:DesignProductsViewModel, IsDesignTimeCreatable=True}">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:ProductViewModel}">
+            <view:ProductView />
+        </DataTemplate>
+    </Window.Resources>
+    <StackPanel>
+        <ItemsControl ItemsSource="{Binding Products}">
+            <view:ProductView />
+        </ItemsControl>
+    </StackPanel>
+    
+</Window>
